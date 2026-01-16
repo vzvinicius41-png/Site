@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açaí do VZ7 - O Melhor Açaí da Cidade!</title>
+    <!-- CONFIGURAÇÃO DO WHATSAPP: Para configurar seu número, procure por "whatsappNumber" no código JavaScript e substitua pelo seu número no formato: código do país + DDD + número (ex: 5511999999999) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        .bg-acai {
+            background: linear-gradient(135deg, #4a0080 0%, #8a2be2 100%);
+        }
+        .bg-acai-light {
+            background: linear-gradient(135deg, #8a2be2 0%, #9370db 100%);
+        }
+        .text-acai {
+            color: #8a2be2;
+        }
+        .border-acai {
+            border-color: #8a2be2;
+        }
+        .shadow-card {
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.15);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-acai flex items-center justify-center">
+                    <i class="fas fa-crown text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800">Açaí do <span class="text-acai">VZ7</span></h1>
+                    <p class="text-xs text-gray-500">O melhor açaí da região</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#inicio" class="text-gray-700 hover:text-acai font-medium">Início</a>
+                <a href="#cardapio" class="text-gray-700 hover:text-acai font-medium">Cardápio</a>
+                <a href="#pedido" class="text-gray-700 hover:text-acai font-medium">Faça seu Pedido</a>
+                <a href="#contato" class="text-gray-700 hover:text-acai font-medium">Contato</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menuBtn" class="text-gray-700 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-3">
+            <div class="flex flex-col space-y-3">
+                <a href="#inicio" class="text-gray-700 hover:text-acai font-medium py-2">Início</a>
+                <a href="#cardapio" class="text-gray-700 hover:text-acai font-medium py-2">Cardápio</a>
+                <a href="#pedido" class="text-gray-700 hover:text-acai font-medium py-2">Faça seu Pedido</a>
+                <a href="#contato" class="text-gray-700 hover:text-acai font-medium py-2">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="bg-acai text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Açaí Premium do <span class="text-yellow-300">VZ7</span></h2>
+                <p class="text-xl mb-6 opacity-90">Experimente o verdadeiro sabor do açaí! Feito com ingredientes selecionados, cremoso e irresistível. Perfeito para qualquer momento do seu dia.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#pedido" class="bg-white text-acai font-bold px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 pulse-animation">
+                        <i class="fas fa-shopping-cart mr-2"></i>Peça Agora
+                    </a>
+                    <a href="#cardapio" class="border-2 border-white text-white font-bold px-6 py-3 rounded-full hover:bg-white hover:text-acai transition duration-300">
+                        <i class="fas fa-utensils mr-2"></i>Ver Cardápio
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-acai-light flex items-center justify-center shadow-2xl">
+                        <i class="fas fa-ice-cream text-white text-8xl md:text-9xl"></i>
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-gray-800 font-bold px-6 py-3 rounded-full shadow-lg">
+                        <i class="fas fa-star mr-2"></i>Avaliação 4.9/5.0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-acai-light rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shipping-fast text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Entrega Rápida</h3>
+                    <p class="text-gray-600">Entregamos em até 30 minutos na sua região</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-acai-light rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Qualidade Garantida</h3>
+                    <p class="text-gray-600">Ingredientes frescos e selecionados</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-acai-light rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-percentage text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Promoções Diárias</h3>
+                    <p class="text-gray-600">Descontos especiais para clientes fiéis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="cardapio" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nosso <span class="text-acai">Cardápio</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Escolha entre nossas deliciosas opções de açaí. Temos tamanhos e combinações para todos os gostos!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Açaí Tradicional</h3>
+                                <p class="text-gray-500 text-sm">Açaí puro com guarana</p>
+                            </div>
+                            <span class="bg-acai text-white font-bold px-3 py-1 rounded-full text-sm">Popular</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Açaí cremoso tradicional, feito na hora com guarana. Perfeito para quem ama o sabor original.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-acai">R$ 12,90</span>
+                                <span class="text-gray-500 text-sm ml-2">300ml</span>
+                            </div>
+                            <button class="add-to-cart bg-acai text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300" data-name="Açaí Tradicional" data-price="12.90" data-size="300ml">
+                                <i class="fas fa-plus mr-1"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Açaí Especial VZ7</h3>
+                                <p class="text-gray-500 text-sm">Completo com frutas</p>
+                            </div>
+                            <span class="bg-yellow-500 text-white font-bold px-3 py-1 rounded-full text-sm">Mais Vendido</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Açaí com banana, morango, granola, leite condensado e leite em pó. A combinação perfeita!</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-acai">R$ 18,90</span>
+                                <span class="text-gray-500 text-sm ml-2">500ml</span>
+                            </div>
+                            <button class="add-to-cart bg-acai text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300" data-name="Açaí Especial VZ7" data-price="18.90" data-size="500ml">
+                                <i class="fas fa-plus mr-1"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Açaí Power</h3>
+                                <p class="text-gray-500 text-sm">Energia para o dia</p>
+                            </div>
+                            <span class="bg-green-500 text-white font-bold px-3 py-1 rounded-full text-sm">Novidade</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Açaí com whey protein, pasta de amendoim, banana e mel. Ideal para antes ou depois do treino.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-acai">R$ 22,90</span>
+                                <span class="text-gray-500 text-sm ml-2">500ml</span>
+                            </div>
+                            <button class="add-to-cart bg-acai text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300" data-name="Açaí Power" data-price="22.90" data-size="500ml">
+                                <i class="fas fa-plus mr-1"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Açaí Kids</h3>
+                                <p class="text-gray-500 text-sm">Para as crianças</p>
+                            </div>
+                            <span class="bg-pink-500 text-white font-bold px-3 py-1 rounded-full text-sm">Infantil</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Açaí com chocolate, morango, confetes coloridos e chantilly. A alegria da garotada!</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-acai">R$ 14,90</span>
+                                <span class="text-gray-500 text-sm ml-2">250ml</span>
+                            </div>
+                            <button class="add-to-cart bg-acai text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300" data-name="Açaí Kids" data-price="14.90" data-size="250ml">
+                                <i class="fas fa-plus mr-1"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Açaí Fitness</h3>
+                                <p class="text-gray-500 text-sm">Sem açúcar, light</p>
+                            </div>
+                            <span class="bg-blue-500 text-white font-bold px-3 py-1 rounded-full text-sm">Light</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Açaí com adoçante natural, frutas vermelhas, granola sem açúcar e iogurte desnatado.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-acai">R$ 16,90</span>
+                                <span class="text-gray-500 text-sm ml-2">400ml</span>
+                            </div>
+                            <button class="add-to-cart bg-acai text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300" data-name="Açaí Fitness" data-price="16.90" data-size="400ml">
+                                <i class="fas fa-plus mr-1"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="bg-white rounded-2xl shadow-card overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Açaí Gigante</h3>
+                                <p class="text-gray-500 text-sm">Para compartilhar</p>
+                            </div>
+                            <span class="bg-red-500 text-white font-bold px-3 py-1 rounded-full text-sm">Família</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Açaí de 1 litro com todas as coberturas: frutas, granola, leite condensado, paçoca e muito mais!</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-acai">R$ 34,90</span>
+                                <span class="text-gray-500 text-sm ml-2">1000ml</span>
+                            </div>
+                            <button class="add-to-cart bg-acai text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300" data-name="Açaí Gigante" data-price="34.90" data-size="1000ml">
+                                <i class="fas fa-plus mr-1"></i> Adicionar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="pedido" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Faça seu <span class="text-acai">Pedido</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Monte seu açaí perfeito! Adicione itens ao carrinho e finalize pelo WhatsApp.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Cart -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Seu Carrinho</h3>
+                    <div class="bg-gray-50 rounded-2xl p-6 shadow-card">
+                        <div id="cartItems" class="mb-6">
+                            <p class="text-gray-500 text-center py-8">Seu carrinho está vazio. Adicione itens do cardápio!</p>
+                        </div>
+                        <div class="border-t pt-4">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Subtotal:</span>
+                                <span id="subtotal" class="font-bold">R$ 0,00</span>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Taxa de entrega:</span>
+                                <span id="delivery" class="font-bold">R$ 5,00</span>
+                            </div>
+                            <div class="flex justify-between text-xl font-bold mt-4 pt-4 border-t">
+                                <span>Total:</span>
+                                <span id="total">R$ 5,00</span>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button id="clearCart" class="w-full bg-gray-200 text-gray-800 font-bold py-3 rounded-full hover:bg-gray-300 transition duration-300 mb-4">
+                                <i class="fas fa-trash-alt mr-2"></i> Limpar Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Info & WhatsApp Order -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Informações para Entrega</h3>
+                    <div class="bg-gray-50 rounded-2xl p-6 shadow-card">
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Nome completo *</label>
+                            <input type="text" id="customerName" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-acai focus:outline-none" placeholder="Seu nome">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Endereço para entrega *</label>
+                            <textarea id="customerAddress" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-acai focus:outline-none" rows="3" placeholder="Rua, número, bairro, complemento..."></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Telefone (WhatsApp) *</label>
+                            <input type="tel" id="customerPhone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-acai focus:outline-none" placeholder="(11) 99999-9999">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Observações do pedido</label>
+                            <textarea id="orderNotes" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-acai focus:outline-none" rows="3" placeholder="Alguma observação especial? Ex: sem leite condensado, mais granola..."></textarea>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-info-circle text-yellow-400 text-xl"></i>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm text-yellow-700">
+                                        Ao finalizar, você será direcionado para o WhatsApp do <strong>Açaí do VZ7</strong> para confirmar seu pedido e combinar a entrega.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="sendWhatsApp" class="w-full btn-whatsapp text-white font-bold py-4 rounded-full text-lg hover:opacity-90 transition duration-300">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Finalizar Pedido pelo WhatsApp
+                        </button>
+                        <p class="text-center text-gray-500 text-sm mt-4">
+                            <i class="fas fa-lock mr-1"></i> Seus dados são usados apenas para processar seu pedido.
+                        </p>
+                        <p class="text-center text-xs text-yellow-600 mt-2">
+                            <i class="fas fa-exclamation-triangle mr-1"></i> Não esqueça de configurar seu número de WhatsApp no código!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-16 bg-acai-light text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em <span class="text-yellow-300">Contato</span></h2>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">Tem dúvidas? Quer fazer um pedido especial? Fale conosco!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone-alt text-acai text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Telefone/WhatsApp</h3>
+                    <p class="text-lg">(11) 99999-9999</p>
+                    <p class="text-sm opacity-80 mt-2">Atendimento das 10h às 22h</p>
+                    <p class="text-xs mt-2 text-yellow-200">* Configure seu número no código JavaScript</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-acai text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Endereço</h3>
+                    <p class="text-lg">Av. Principal, 123</p>
+                    <p class="text-sm opacity-80 mt-2">Centro - São Paulo, SP</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-acai text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Horário de Funcionamento</h3>
+                    <p class="text-lg">Todos os dias</p>
+                    <p class="text-sm opacity-80 mt-2">10:00 - 22:00</p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold mb-6">Siga o Açaí do VZ7</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-acai text-2xl hover:bg-gray-100 transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-acai text-2xl hover:bg-gray-100 transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-acai text-2xl hover:bg-gray-100 transition duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-full bg-acai flex items-center justify-center">
+                            <i class="fas fa-crown text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Açaí do <span class="text-acai">VZ7</span></h2>
+                            <p class="text-sm text-gray-400">Sabor que conquista!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">&copy; 2023 Açaí do VZ7. Todos os direitos reservados.</p>
+                    <p class="text-gray-400 text-sm mt-2">Desenvolvido com ❤️ para os amantes de açaí</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Shopping Cart Functionality
+        let cart = JSON.parse(localStorage.getItem('acaiCart')) || [];
+        const deliveryFee = 5.00;
+
+        // Format price to Brazilian Real
+        function formatPrice(price) {
+            return 'R$ ' + price.toFixed(2).replace('.', ',');
+        }
+
+        // Update cart display
+        function updateCart() {
+            // Save cart to localStorage
+            localStorage.setItem('acaiCart', JSON.stringify(cart));
+            
+            const cartItems = document.getElementById('cartItems');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center py-8">Seu carrinho está vazio. Adicione itens do cardápio!</p>';
+                subtotalElement.textContent = formatPrice(0);
+                totalElement.textContent = formatPrice(deliveryFee);
+                return;
+            }
+
+            // Calculate subtotal
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+
+            // Update subtotal and total
+            subtotalElement.textContent = formatPrice(subtotal);
+            totalElement.textContent = formatPrice(subtotal + deliveryFee);
+
+            // Render cart items
+            cartItems.innerHTML = '';
+            cart.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex justify-between items-center py-4 border-b border-gray-200';
+                itemElement.innerHTML = `
+                    <div>
+                        <h4 class="font-bold text-gray-800">${item.name}</h4>
+                        <p class="text-sm text-gray-500">${item.size} • ${formatPrice(item.price)} cada</p>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="decrease-item w-8 h-8 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" data-index="${index}">
+                            <i class="fas fa-minus text-xs"></i>
+                        </button>
+                        <span class="mx-3 font-bold">${item.quantity}</span>
+                        <button class="increase-item w-8 h-8 rounded-full bg-acai text-white hover:bg-purple-700" data-index="${index}">
+                            <i class="fas fa-plus text-xs"></i>
+                        </button>
+                        <button class="remove-item ml-4 text-red-500 hover:text-red-700" data-index="${index}">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                `;
+                cartItems.appendChild(itemElement);
+            });
+
+            // Add event listeners to the new buttons
+            document.querySelectorAll('.decrease-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity--;
+                    } else {
+                        cart.splice(index, 1);
+                    }
+                    updateCart();
+                });
+            });
+
+            document.querySelectorAll('.increase-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    cart[index].quantity++;
+                    updateCart();
+                });
+            });
+
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    cart.splice(index, 1);
+                    updateCart();
+                });
+            });
+        }
+
+        // Add to cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                const size = this.getAttribute('data-size');
+                
+                // Check if item already exists in cart
+                const existingItemIndex = cart.findIndex(item => item.name === name && item.size === size);
+                
+                if (existingItemIndex !== -1) {
+                    cart[existingItemIndex].quantity++;
+                } else {
+                    cart.push({
+                        name: name,
+                        price: price,
+                        size: size,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                
+                // Visual feedback
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check mr-1"></i> Adicionado!';
+                this.classList.remove('bg-acai');
+                this.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.classList.remove('bg-green-500');
+                    this.classList.add('bg-acai');
+                }, 1000);
+            });
+        });
+
+        // Clear cart button
+        document.getElementById('clearCart').addEventListener('click', function() {
+            cart = [];
+            localStorage.removeItem('acaiCart');
+            updateCart();
+        });
+
+        // WhatsApp Order Functionality
+        document.getElementById('sendWhatsApp').addEventListener('click', function() {
+            const name = document.getElementById('customerName').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const notes = document.getElementById('orderNotes').value.trim();
+            
+            // Validation
+            if (!name || !address || !phone) {
+                alert('Por favor, preencha pelo menos o nome, endereço e telefone.');
+                return;
+            }
+            
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio. Adicione itens antes de finalizar o pedido.');
+                return;
+            }
+            
+            // Format phone number (remove non-digits)
+            const phoneNumber = phone.replace(/\D/g, '');
+            
+            // Basic Brazilian phone validation
+            if (phoneNumber.length < 10 || phoneNumber.length > 11) {
+                alert('Por favor, insira um número de telefone válido (com DDD). Exemplo: (11) 99999-9999');
+                return;
+            }
+            
+            // Calculate total
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+            const total = subtotal + deliveryFee;
+            
+            // Create order message
+            let message = `*PEDIDO - AÇAÍ DO VZ7*%0A%0A`;
+            message += `*Cliente:* ${name}%0A`;
+            message += `*Endereço:* ${address}%0A`;
+            message += `*Telefone:* ${phone}%0A%0A`;
+            message += `*ITENS DO PEDIDO:*%0A`;
+            
+            cart.forEach(item => {
+                message += `• ${item.quantity}x ${item.name} (${item.size}) - ${formatPrice(item.price * item.quantity)}%0A`;
+            });
+            
+            message += `%0A`;
+            message += `*Subtotal:* ${formatPrice(subtotal)}%0A`;
+            message += `*Taxa de entrega:* ${formatPrice(deliveryFee)}%0A`;
+            message += `*TOTAL:* ${formatPrice(total)}%0A%0A`;
+            
+            if (notes) {
+                message += `*Observações:* ${notes}%0A%0A`;
+            }
+            
+            message += `*Confirmar pedido?*`;
+            
+            // WhatsApp phone number - CONFIGURE SEU NÚMERO AQUI!
+            // Formato: código do país + DDD + número (sem espaços ou caracteres especiais)
+            // Exemplo para Brasil: 5511999999999 (11 é DDD, 999999999 é o número)
+            const whatsappNumber = '5511999999999'; // ⬅️ SUBSTITUA POR SEU NÚMERO!
+            
+            // Open WhatsApp
+            const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(url, '_blank');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Initialize cart
+        updateCart();
+    </script>
+</body>
+</html>
